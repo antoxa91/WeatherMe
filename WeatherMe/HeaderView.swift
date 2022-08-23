@@ -59,13 +59,13 @@ extension ViewController {
             height: width/3))
 
         let windLabel = UILabel(frame: CGRect(
-            x: width/2.3,
+            x: width/2.1,
             y: iconImage.frame.size.height/2 + tempLabel.frame.size.height/2,
             width: width/3,
             height: width/3))
 
         let humidityLabel = UILabel(frame: CGRect(
-            x: width/1.2,
+            x: width/1.25,
             y: iconImage.frame.size.height/2 + tempLabel.frame.size.height/2,
             width: width/3,
             height: width/3))
