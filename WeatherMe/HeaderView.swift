@@ -57,7 +57,7 @@ extension ViewController {
             y: iconImage.frame.size.height/2 + tempLabel.frame.size.height/2,
             width: width/2,
             height: width/3))
-
+        
         let windLabel = UILabel(frame: CGRect(
             x: width/2.1,
             y: iconImage.frame.size.height/2 + tempLabel.frame.size.height/2,
@@ -86,6 +86,7 @@ extension ViewController {
         
         summaryLabel.font = UIFont(name: "Helvetica", size: 28)
         summaryLabel.textAlignment = .center
+        summaryLabel.adjustsFontSizeToFitWidth = true
         summaryLabel.text = currentWeather.weather.first?.weatherDescription.rawValue.capitalizingFirstLetter()
         
         iconImage.contentMode = .scaleAspectFill

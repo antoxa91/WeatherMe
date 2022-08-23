@@ -35,26 +35,34 @@ class ViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "location.circle"), style: .plain, target: self, action: #selector(currentLocationTapped))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass.circle"), style: .plain, target: self, action: #selector(searchCity))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), menu: menuTapped())
         
         fetchWeatherFull()
     }
     
-    @objc func searchCity(_ sender: UIBarButtonItem) {
-          let ac = UIAlertController(title: "Введите местоположение", message: nil, preferredStyle: .alert)
-          ac.addAction(UIAlertAction(title: "Отмена", style: .cancel))
-          ac.addTextField()
-          
-          ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-              guard let field = ac.textFields else { return }
-              guard let city = field[0].text, !city.isEmpty else {
-                  return
-              }
-              self.fetchWeather(cityName: city)
-          }))
-          present(ac, animated: true)
-  }
-    
+    func menuTapped() -> UIMenu {
+        let searchPlace = UIAction(
+            title: "Поиск",
+            image: UIImage(systemName: "magnifyingglass.circle")) { [weak self] _ in
+                let ac = UIAlertController(title: "Введите местоположение", message: nil, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+                ac.addTextField()
+                
+                ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    guard let field = ac.textFields else { return }
+                    guard let city = field[0].text, !city.isEmpty else {
+                        return
+                    }
+                    self?.fetchWeather(cityName: city)
+                }))
+                self?.present(ac, animated: true)
+            }
+        
+        let menu = UIMenu(title: "Меню", image: nil, children: [searchPlace])
+        return menu
+    }
+
+        
     @objc func currentLocationTapped(_ sender: UIBarButtonItem) {
         fetchWeatherFull()
     }
