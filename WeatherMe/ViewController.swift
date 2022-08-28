@@ -9,25 +9,25 @@ import UIKit
 import CoreLocation
 
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     @IBOutlet var table: UITableView!
     var headerView: UIView!
     var searchButton: UIBarButtonItem!
-
+    
     var models = [Daily]()
     var hourlyModels = [Current]()
-        
+    
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var currentWeather: Current?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         table.register(HourlyTableViewCell.nib(), forCellReuseIdentifier: HourlyTableViewCell.identifier)
         table.register(WeatherTableViewCell.nib(), forCellReuseIdentifier: WeatherTableViewCell.identifier)
-                table.delegate = self
+        table.delegate = self
         table.dataSource = self
         
         table.backgroundColor = UIColor(named: "Primary")!
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         fetchWeatherFull()
     }
     
-    func menuTapped() -> UIMenu {
+    private func menuTapped() -> UIMenu {
         let searchPlace = UIAction(
             title: "Поиск",
             image: UIImage(systemName: "magnifyingglass.circle")) { [weak self] _ in
@@ -61,8 +61,8 @@ class ViewController: UIViewController {
         let menu = UIMenu(title: "Меню", image: nil, children: [searchPlace])
         return menu
     }
-
-        
+    
+    
     @objc func currentLocationTapped(_ sender: UIBarButtonItem) {
         fetchWeatherFull()
     }
@@ -113,7 +113,7 @@ extension ViewController: CLLocationManagerDelegate {
         let lat = currentLocation.coordinate.latitude
         
         let weatherURL = "https://api.openweathermap.org/data/2.5/onecall?&appid=\(apiKey)&units=metric&lang=ru&lat=\(lat)&lon=\(lon)"
-                
+        
         URLSession.shared.dataTask(with: URL(string: weatherURL)!) { data, response, error in
             guard let data = data, error == nil else {
                 return
@@ -126,7 +126,7 @@ extension ViewController: CLLocationManagerDelegate {
             catch {
                 print(error)
             }
-                      
+            
             self.appendData(json: json)
             self.currentPlacemark(currentPlacemark: currentLocation)
             
@@ -159,7 +159,7 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
- 
+
 
 // MARK: - Table View
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -183,7 +183,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             cell.layer.cornerRadius = cell.frame.size.height/10
             return cell
         }
-        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.identifier, for: indexPath) as! WeatherTableViewCell
         

@@ -11,7 +11,7 @@ import CoreLocation
 extension UIImageView {
     func loadFrom(URLAddress: String) {
         let imageCache = NSCache<AnyObject,AnyObject>()
-
+        
         if let image = imageCache.object(forKey: URLAddress as NSString) as? UIImage {
             self.image = image
             return
@@ -26,7 +26,7 @@ extension UIImageView {
                 if let loadedImage = UIImage(data: imageData) {
                     DispatchQueue.main.async {
                         imageCache.setObject(imageCache, forKey: URLAddress as NSString)///
-                            self?.image = loadedImage
+                        self?.image = loadedImage
                     }
                 }
             }
@@ -39,7 +39,7 @@ extension Date {
     func getDayOfWeek(dayForCell: Date?) -> String? {
         guard let inputDate = dayForCell else { return "" }
         let dateFormatter  = DateFormatter()
-
+        
         dateFormatter.dateFormat = "EEEE"
         dateFormatter.locale = Locale(identifier: "ru_RU")
         return dateFormatter.string(from: inputDate).localizedCapitalized
@@ -48,7 +48,7 @@ extension Date {
     func getHourOfDay(hourForCell: Date?) -> String? {
         guard let inputDate = hourForCell else { return "" }
         let dateFormatter  = DateFormatter()
-
+        
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: inputDate).localizedCapitalized
     }
@@ -64,13 +64,13 @@ extension CLLocation {
 
 // MARK: - Первая буква в строке большая
 extension String {
-func capitalizingFirstLetter() -> String {
+    func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }
     
     mutating func capitalizeFirstLetter() {
-            self = self.capitalizingFirstLetter()
-        }
+        self = self.capitalizingFirstLetter()
+    }
 }
 
 // MARK: - Gradient

@@ -22,21 +22,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Mcy-U2-Z9l">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Mcy-U2-Z9l">
                         <rect key="frame" x="517" y="11" width="55" height="133"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="55" id="P2b-GM-yqV"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="7Dr-wK-VKy">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="7Dr-wK-VKy">
                         <rect key="frame" x="486" y="11" width="30" height="133"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="X4l-nf-XiP"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
+                        <fontDescription key="fontDescription" name="Arial-ItalicMT" family="Arial" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -75,9 +75,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dayLabel" destination="7R3-ec-UaX" id="6bF-LY-uYr"/>
-                <outlet property="highTempLabel" destination="Mcy-U2-Z9l" id="zkk-71-6lm"/>
                 <outlet property="iconImageView" destination="ZGW-ut-uiT" id="XCx-UV-5c3"/>
                 <outlet property="popLabel" destination="7Dr-wK-VKy" id="s5t-8u-eca"/>
+                <outlet property="tempLabel" destination="Mcy-U2-Z9l" id="zkk-71-6lm"/>
             </connections>
             <point key="canvasLocation" x="246.37681159420291" y="130.24553571428572"/>
         </tableViewCell>

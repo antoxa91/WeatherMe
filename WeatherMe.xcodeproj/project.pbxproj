@@ -76,8 +76,7 @@
 		C509575A28AE01C60064C1E6 /* WeatherMe */ = {
 			isa = PBXGroup;
 			children = (
-				C509575B28AE01C60064C1E6 /* AppDelegate.swift */,
-				C509575D28AE01C60064C1E6 /* SceneDelegate.swift */,
+				C52EBE6C28B5349200BC0388 /* Application */,
 				C509576628AE01C70064C1E6 /* LaunchScreen.storyboard */,
 				C509576428AE01C70064C1E6 /* Assets.xcassets */,
 				C5DDC2B228AE23C2008ED062 /* CollectionViewCell */,
@@ -110,6 +109,15 @@
 				C509577828AE03230064C1E6 /* HourlyTableViewCell.xib */,
 			);
 			path = HourlyCollectionCell;
+			sourceTree = "<group>";
+		};
+		C52EBE6C28B5349200BC0388 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C509575B28AE01C60064C1E6 /* AppDelegate.swift */,
+				C509575D28AE01C60064C1E6 /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		C5DDC2B228AE23C2008ED062 /* CollectionViewCell */ = {
@@ -286,7 +294,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Debug;
 		};

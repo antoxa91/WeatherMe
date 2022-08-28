@@ -16,7 +16,7 @@ extension ViewController {
         headerView.createGradient(color1: CGColor(red: 0, green: 215, blue: 255, alpha: 1),
                                   color2: UIColor(named: "ViewColor")!)
         
-        UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 20, animations: {
             self.headerView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
             self.headerView.transform = .identity
         }, completion: nil)
@@ -63,7 +63,7 @@ extension ViewController {
             y: iconImage.frame.size.height/2 + tempLabel.frame.size.height/2,
             width: width/3,
             height: width/3))
-
+        
         let humidityLabel = UILabel(frame: CGRect(
             x: width/1.25,
             y: iconImage.frame.size.height/2 + tempLabel.frame.size.height/2,
@@ -101,7 +101,7 @@ extension ViewController {
         pressureLabel.attributedText = imageAndText(
             image: UIImage(systemName: "barometer")!.withTintColor(UIColor.label),
             param: String(format: " %.f", (Double(currentWeather.pressure) / 1.333))+" мм рт.ст")
-
+        
         windLabel.attributedText = imageAndText(
             image: UIImage(systemName: "wind")!.withTintColor(UIColor.label),
             param: " \(currentWeather.windSpeed) м/c")
@@ -109,12 +109,12 @@ extension ViewController {
         humidityLabel.attributedText = imageAndText(
             image: (UIImage(systemName: "drop")!.withTintColor(UIColor.label)),
             param: " \(currentWeather.humidity) %")
-
+        
         return headerView
     }
     
     
-    func imageAndText(image: UIImage, param: String) -> NSAttributedString {
+    private func imageAndText(image: UIImage, param: String) -> NSAttributedString {
         let fullString = NSMutableAttributedString()
         let imageAttachment = NSTextAttachment()
         

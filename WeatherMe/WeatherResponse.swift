@@ -15,7 +15,7 @@ struct WeatherResponse: Codable {
     let current: Current
     let hourly: [Current]
     let daily: [Daily]
-
+    
     enum CodingKeys: String, CodingKey {
         case lat, lon , timezone
         case timezoneOffset = "timezone_offset"
@@ -62,8 +62,8 @@ struct Weather: Codable {
         let iconAddress = "https://openweathermap.org/img/wn/\(icon)@4x.png"
         return URL(string: iconAddress)!
     }
- 
-
+    
+    
     enum CodingKeys: String, CodingKey {
         case id, main
         case weatherDescription = "description"
@@ -103,7 +103,7 @@ struct Daily: Codable {
     let clouds: Int
     let pop, uvi: Double 
     let rain: Double?
-
+    
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, moonrise, moonset
         case moonPhase = "moon_phase"

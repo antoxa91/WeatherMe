@@ -8,16 +8,16 @@
 import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var dayLabel: UILabel!
-    @IBOutlet var highTempLabel: UILabel!
+    @IBOutlet var tempLabel: UILabel!
     @IBOutlet var popLabel: UILabel!
     @IBOutlet var iconImageView: UIImageView!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -30,7 +30,7 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     func configure(with model: Daily) {
-        self.highTempLabel.text = "\(Int(model.temp.min))°/\(Int(model.temp.max))°"
+        self.tempLabel.text = "\(Int(model.temp.min))°/\(Int(model.temp.max))°"
         self.popLabel.text = String(format: "%.f", model.pop * 100) + "%"
         
         self.dayLabel.text = Date().getDayOfWeek(dayForCell: Date(timeIntervalSince1970: Double(model.dt)))

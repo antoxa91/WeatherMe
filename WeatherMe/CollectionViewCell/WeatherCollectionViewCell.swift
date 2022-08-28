@@ -8,7 +8,7 @@
 import UIKit
 
 class WeatherCollectionViewCell: UICollectionViewCell {
-
+    
     static let identifier = "WeatherCollectionViewCell"
     
     static func nib() -> UINib {
@@ -19,8 +19,8 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     @IBOutlet var iconImageView: UIImageView!
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var hourLabel: UILabel!
-
-    func configure(with model: Current) { 
+    
+    func configure(with model: Current) {
         self.tempLabel.text = "\(Int(model.temp))°"
         self.hourLabel.text = Date().getHourOfDay(hourForCell: Date(timeIntervalSince1970: Double(model.dt)))
         
@@ -28,7 +28,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         guard let iconAddress = model.weather.first?.weatherIconURL2x.absoluteString else {return}
         self.iconImageView.loadFrom(URLAddress: iconAddress)
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

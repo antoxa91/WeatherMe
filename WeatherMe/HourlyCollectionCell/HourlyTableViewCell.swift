@@ -8,7 +8,7 @@
 import UIKit
 
 class HourlyTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var collectionView: UICollectionView!
     
     var models = [Current]()
@@ -19,7 +19,7 @@ class HourlyTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
