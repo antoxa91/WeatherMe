@@ -7,6 +7,4 @@
 
 import Foundation
 
-//API_KEY брать здесь: https://home.openweathermap.org/api_keys
-
 let apiKey = "API_KEY"

@@ -16,8 +16,8 @@ extension ViewController {
         headerView.createGradient(color1: CGColor(red: 0, green: 215, blue: 255, alpha: 1),
                                   color2: UIColor(named: "ViewColor")!)
         
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 20, animations: {
-            self.headerView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, animations: {
+            self.headerView.transform.c = -1
             self.headerView.transform = .identity
         }, completion: nil)
         
