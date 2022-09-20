@@ -75,6 +75,7 @@ enum Main: String, Codable {
     case clear = "Clear"
     case clouds = "Clouds"
     case rain = "Rain"
+    case snow = "Snow"
 }
 
 enum Description: String, Codable {
@@ -87,6 +88,9 @@ enum Description: String, Codable {
     case дождь = "дождь"
     case небольшойПроливнойДождь = "небольшой проливной дождь"
     case сильныйДождь = "сильный дождь"
+    case небольшойСнег = "небольшой снег"
+    case снегСДождём = "снег с дождём"
+    case снег = "снег"
 }
 
 // MARK: - Daily

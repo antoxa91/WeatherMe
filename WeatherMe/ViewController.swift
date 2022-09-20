@@ -22,6 +22,8 @@ final class ViewController: UIViewController {
     var currentLocation: CLLocation?
     var currentWeather: Current?
     
+    let popularCities = ["Москва", "Санкт-Петербург", "Екатеринбург", "Новосибирск", "Казань", "Сочи"].sorted()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +42,7 @@ final class ViewController: UIViewController {
         fetchWeatherFull()
     }
     
+    // MARK: - MenuButton
     private func menuTapped() -> UIMenu {
         let searchPlace = UIAction(
             title: "Поиск",
@@ -58,7 +61,15 @@ final class ViewController: UIViewController {
                 self?.present(ac, animated: true)
             }
         
-        let menu = UIMenu(title: "Меню", image: nil, children: [searchPlace])
+        let listAction = self.popularCities.map {
+             UIAction(title: $0) { city in
+                 self.fetchWeather(cityName: city.title)
+             }
+         }
+        
+        let citiesMenu = UIMenu(title: "Популярные города", image: UIImage(systemName: "building.columns.circle"), children: listAction)
+        
+        let menu = UIMenu(title: "Меню", image: nil, children: [searchPlace, citiesMenu])
         return menu
     }
     
