@@ -24,7 +24,7 @@ WearherMe - is a weather app that uses API from [openweathermap.org ](https://op
 
 2. Open the project in Xcode
 
-3. Replace API_KEY with your valid openWeatherMap.org key in Constant.swift
+3. Replace `API_KEY` with your valid openWeatherMap.org key in `Constant.swift`
 
    ```swift
    let apiKey = "API_KEY"
